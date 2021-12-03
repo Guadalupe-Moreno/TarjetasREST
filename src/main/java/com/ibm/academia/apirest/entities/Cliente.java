@@ -6,6 +6,8 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -32,13 +34,14 @@ public class Cliente implements Serializable
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column (name = "edad", unique = true, nullable = false, length = 50)
+	@Column (name = "edad", nullable = false)
 	private Integer edad;
 	
-	@Column (name = "sueldo", unique = true, nullable = false, length = 50)
+	@Column (name = "sueldo", nullable = false)
 	private BigDecimal sueldo;
 	
-	@Column (name = "preferencia", unique = true, nullable = false, length = 50)
+	@Column(name = "tipo_preferencia")
+	@Enumerated(EnumType.STRING)
 	private Preferencia preferencia;
 	
 	@Override
