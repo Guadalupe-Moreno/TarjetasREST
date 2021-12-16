@@ -6,14 +6,10 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import com.ibm.academia.apirest.enums.Preferencia;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,22 +23,30 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @Entity
-@Table (name = "clientes", schema = "tarjeta")
+@Table (name = "clientes")
 public class Cliente implements Serializable
 {
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column (name = "edad", nullable = false)
-	private Integer edad;
+	@Column (name = "edad_minima", nullable = false)
+	private Integer edadMinima;
 	
-	@Column (name = "sueldo", nullable = false)
-	private BigDecimal sueldo;
+	@Column (name = "edad_maxima", nullable = false)
+	private Integer edadMaxima;
 	
-	@Column(name = "tipo_preferencia")
-	@Enumerated(EnumType.STRING)
-	private Preferencia preferencia;
+	@Column (name = "sueldo_minimo", nullable = false)
+	private BigDecimal sueldoMinimo;
+	
+	@Column (name = "sueldo_maximo", nullable = true)
+	private BigDecimal sueldoMaximo;
+	
+	@Column(name = "preferencia")
+	private String preferencia;
+	
+	@Column (name = "tipo_tarjeta")
+	private String tipoTarjeta;
 	
 	@Override
 	public int hashCode() {
