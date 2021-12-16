@@ -17,7 +17,15 @@ import com.ibm.academia.apirest.services.ClienteDAO;
 public class ClienteController {
 	@Autowired
 	private ClienteDAO clienteDao;
-
+	
+	/**
+	 * Enpoint para obtener el tipo de tarjeta de crédito más adecuado al cliente basado en su perfil
+	 * @BadRequestException En caso de que no exista tarjeta en base de datos
+	 * @return Lista de tarjetas adecuadas para el cliente.
+	 * @author Guadalupe 15/12/2021
+	 */
+	
+	
 	@GetMapping("/datos") 
 	public List<Cliente> ingresaDatos(String preferencia, BigDecimal sueldo, Integer edad){
 		List<Cliente> clientes = clienteDao.findByPreferenciaAndSueldoAndEdad(preferencia, sueldo, edad);
