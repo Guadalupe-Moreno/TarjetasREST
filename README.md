@@ -36,4 +36,7 @@ Paso a paso para ejecutar la aplicación:
 **Es necesario ingresar por parametro los datos de la siguiente manera:**
 ![](postman.png)
 
+**De no haver considencia con la base de datos:**
+![](error.png)
+
 ****
